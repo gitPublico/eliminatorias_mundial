@@ -27,3 +27,7 @@ class Player(models.Model):
     
     def __str__(self):
         return self.first_name + " " + self.last_name
+    
+    # Cuando haga la edición me regresa al listado de jugadores :3
+    def get_absolute_url(self):
+        return reverse('player-list')

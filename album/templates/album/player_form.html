@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+{% comment %} enctype="multipart/form-data" sirve para subir archivos adjuntos, sino no llega la imagen o el archivo al servidor {% endcomment %}
+{% comment %} {% csrf_token %} evita que yo haga inyecciones desde otra parte {% endcomment %}
+  <form enctype="multipart/form-data" method="post">{% csrf_token %}
+         {{ form.as_p }}
+         {% comment %} Todos los campos que yo referencio alla como all los ponga como parrafos. se pueden poner as_table y los pone como tabla y así con otras opciones {% endcomment %}
+        <br>
+       <button type="submit">Save</button>
+    <a class='btn' href="{% url 'player-list' %}">Cancel</a>
+    {% comment %} Si cancelo me redirige a una ruta específica {% endcomment %}
+  </form>
+{% endblock maincontent%} 
